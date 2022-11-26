@@ -1,0 +1,45 @@
+// Create a sass file that removes underlines from all links and that sets the background
+// color of active links to yellow, visited links to orange and links that is not yet clicked to
+// green; links of a class ‘important’ should be written using bold letters
+$background-color: black;
+$active-color: yellow;
+$visited-color: orange;
+$color: green;
+$f-size: 26px;
+$text-f-size: 16px;
+// Using Pseudo-classes in SASS
+a {
+    color: $color;
+    font-size: $f-size;
+    text-decoration: none;
+    background-color: $background-color;
+    &.important {
+        font-weight: bold;
+    }
+    &:active {
+        color: $active-color;
+    }
+    &:visited {
+        color: $visited-color;
+    }
+}
+
+// Control Directives (@for)
+// ● Create a page with four paragraphs
+// ● The first paragraph should have font size 16px, and all others should have font size
+// which is 2px bigger than the previous one
+.second-task p {
+    @for $i from 1 through 4 {
+        &:nth-child(#{$i}) {
+            font-size: $text-f-size + $i * 2 - 2;
+        }
+    }
+}
+
+// Control Directives (@if)
+// ● Use the example from the last exercise
+// ● Create a mixin that, depending on the integer passed to it (1, 2, 3 or 4), sets the color of
+// the background to different colors
+// ● Use this mixin for styling each of the four paragraphs, passing to the mixin the ordinal
+// number of the paragraph
+@mixin setColor() {}
