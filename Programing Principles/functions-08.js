@@ -74,6 +74,31 @@ console.log("3.--------------------------");
 // Output: Your password is invalid!
 // Input: JSGuru123
 // Output: Your password is cool!
+console.log("4.--------------------------");
+
+function successCallback() {
+    return "Your password is cool!";
+}
+
+function errorCallback() {
+    return "Your password is invalid!!";
+}
+
+function checkPassword(pass, a, b) {
+    var count = 0;
+    for (var i = 0; i < pass.length; i++) {
+        if (parseInt(pass[i]) >= 0) {
+            count++;
+        }
+    }
+    if (pass.length > 6 && count >= 1) {
+        return a();
+    } else {
+        return b();
+    }
+}
+
+console.log(checkPassword("JSGuru1", successCallback, errorCallback));
 
 // 7. Write a function that filters elements of the given array so that they satisfy a condition
 // given by the callback function.
